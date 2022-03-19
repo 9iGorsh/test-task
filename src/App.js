@@ -1,22 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import Header from './components/Header';
-import * as actions from './components/actions/getRates'
+// import * as actions from './components/actions/getRates'
+import LoadingPage from './components/Loader';
+import Items from './components/Items';
 
 const App =() =>{
 
-  const data =actions.getCurrent().then((res) =>{
-    console.log('res.data.Valute == ', res.data.Valute)
-    const dataObject =res.data.Valute
-    
-  })
+  const[isLoaded, setIsLoaded] =useState(false)
 
-  return (
-    <div className="App">
-      <Header />
-      <p>data</p>
-    </div>
-  );
+  useEffect(() =>{
+    
+    setIsLoaded(true)
+  },[])
+
+  if(!isLoaded) return <LoadingPage />
+  
+    return (
+      <div className="App">
+        <Header />
+        <Items />
+      </div>
+    )  
 }
 
 export default App;

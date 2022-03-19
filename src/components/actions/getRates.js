@@ -6,10 +6,6 @@ import axios from "axios";
 
 export const getCurrent =async() =>{
     const result =await axios.get('https://www.cbr-xml-daily.ru/daily_json.js')
-    return result
+    const dataObject = await result.data.Valute
+        return dataObject
 }
-
-// export const getPrev =async() =>{
-//     const result =await axios.get('https://www.cbr-xml-daily.ru/daily_json.js')
-//     return result
-// }
