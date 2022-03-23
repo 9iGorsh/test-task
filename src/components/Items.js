@@ -21,7 +21,7 @@ const Items =(props)=>{
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps     
     },[])
-   
+    console.log('data = ',data)
     let key =0
 
     if(!data){
@@ -59,6 +59,9 @@ const Items =(props)=>{
                     <table>
                     <thead>
                         <tr>
+                            <th>
+                                Дата
+                            </th>
                             <th>
                                 Сейчас
                             </th>

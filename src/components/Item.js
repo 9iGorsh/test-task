@@ -2,10 +2,10 @@ import React, { Fragment } from "react";
 import { getPercentage } from '../actions/getPercentage'
 import { Link } from 'react-router-dom';
 
-const Item =({CharCode, Value, Previous, Name, all}) =>{
+const Item =({CharCode, dateOfValue:Date, Value, Previous, Name, all}) =>{
     
     const percentage =getPercentage(Value, Previous).toFixed(2)
-  
+  console.log('date == ', Date)
     
     return (
        
@@ -35,6 +35,9 @@ const Item =({CharCode, Value, Previous, Name, all}) =>{
                 </tr>                
             ) :(
                 <tr>                   
+                    <td>
+                        {Date}
+                    </td>
                     <td>
                         {Value.toFixed(2)}
                     </td>
