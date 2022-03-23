@@ -1,27 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import './App.css';
-import Header from './components/Header';
-// import * as actions from './components/actions/getRates'
-import LoadingPage from './components/Loader';
-import Items from './components/Items';
+import React from "react";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
+import Header from "./components/Header";
+import HomePage from "./pages/HomePage";
+import NotFoundPage from "./pages/NotFoundPage";
+import ItemPage from "./pages/ItemPage";
+import './App.css'
 
-const App =() =>{
+const App=() =>(
+    <BrowserRouter>
+        <div>
+            <Header />
+            <Routes>
+                <Route path='/' element={<HomePage />} />
+                <Route path="/archive/:id" element={<ItemPage />} />
+                <Route path='*' element={<NotFoundPage />} />
+            </Routes>
+        </div>
+    </BrowserRouter>
+)
 
-  const[isLoaded, setIsLoaded] =useState(false)
-
-  useEffect(() =>{
-    
-    setIsLoaded(true)
-  },[])
-
-  if(!isLoaded) return <LoadingPage />
-  
-    return (
-      <div className="App">
-        <Header />
-        <Items />
-      </div>
-    )  
-}
-
-export default App;
+export default App
