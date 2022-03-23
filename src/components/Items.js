@@ -18,7 +18,7 @@ const Items =(props)=>{
                 const resArray =Object.values(res)
                 setData(resArray)
             }) 
-        }  
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps     
     },[])
    

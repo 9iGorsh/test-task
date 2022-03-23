@@ -5,12 +5,14 @@ let prevItemDate =''
 let archive10 =[]
 
 export const getItemArchive =async(id) =>{
-    
+    prevItemDate =''
+    archive10 =[]
+
     await getLastCurrencyData(id, false)
     await getLastCurrencyData(id, true)
     await getLastCurrencyData(id, true)
     await getLastCurrencyData(id, true)
-    await getLastCurrencyData(id, true)
+    await getLastCurrencyData(id, true) 
     await getLastCurrencyData(id, true)
     await getLastCurrencyData(id, true)
     await getLastCurrencyData(id, true)
