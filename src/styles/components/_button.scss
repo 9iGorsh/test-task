@@ -1,0 +1,20 @@
+.button{
+    float: right;
+    display: block;
+    border: none;
+    color: white; 
+    font-size: $f-size-small;
+    font-weight: 300;
+    line-height: 1;
+    padding: 5px;
+    text-decoration: none;
+    margin-top: .5em;
+    margin-right: .5em;
+}
+
+.button:hover {
+    background: $grey;
+}
+.button__none {
+    display: none;
+}

@@ -31,10 +31,8 @@ const getLastCurrencyData =async(CharCode, isArchive) =>{
     const prevDate = await currentData.data.PreviousDate
     const prevDateMoment = moment(prevDate, "YYYY-MM-DD")
     prevItemDate =prevDateMoment.format('YYYY')+'/'+prevDateMoment.format('MM')+'/'+prevDateMoment.format('DD')
-    console.log("prevItemDate ==  ", prevItemDate) //-----
 
     //set currentCurrency data to array:
     const lastData =currentData.data.Valute[CharCode]
-    console.log('lastData == ', lastData)
     archive10.push(lastData)
 }

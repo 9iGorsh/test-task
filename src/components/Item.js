@@ -1,20 +1,52 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { getPercentage } from '../actions/getPercentage'
-// import { History } from "history";
 import { Link } from 'react-router-dom';
 
-const Item =({CharCode, Value, Previous, ID}) =>{
-    // const{CharCode, Value, Previous}=item
+const Item =({CharCode, Value, Previous, Name, all}) =>{
+    
     const percentage =getPercentage(Value, Previous).toFixed(2)
   
+    
     return (
-        <div>
-            <Link to={`/archive/${CharCode}`}>
-            <p>
-                {CharCode} | {Value} | {Previous}|{percentage}%
-            </p>
-            </Link>
-        </div>
+       
+       <Fragment>  
+            {all ? (               
+                 <tr data-tip={`${Name}`}>                   
+                    <td>
+                    <Link to={`/archive/${CharCode}`} >
+                        {CharCode}
+                    </Link>
+                    </td>
+                    <td>
+                    <Link to={`/archive/${CharCode}`}>
+                        {Value.toFixed(2)}
+                    </Link>
+                    </td>
+                    <td>
+                    <Link to={`/archive/${CharCode}`}>
+                        {Previous.toFixed(2)}
+                    </Link>
+                    </td>
+                    <td>
+                    <Link to={`/archive/${CharCode}`}>
+                        {percentage}%
+                    </Link>
+                    </td>                  
+                </tr>                
+            ) :(
+                <tr>                   
+                    <td>
+                        {Value.toFixed(2)}
+                    </td>
+                    <td>
+                        {Previous.toFixed(2)}
+                    </td>
+                    <td>
+                        {percentage}%
+                    </td>                  
+                </tr>     
+            ) }          
+        </Fragment>
     )
 }
 

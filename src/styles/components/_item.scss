@@ -1,0 +1,23 @@
+tr[data-tip]{
+    position: relative;
+}
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+tr[data-tip]:hover::after{
+    content: attr(data-tip);
+    display: block;
+    width: 100%;
+    position:absolute;
+    bottom: 80%;
+    left: 0;
+    border-radius: 5px;
+    background-color: $off-white;
+    padding: 0.4em 1rem;
+}
+
+// tr:hover {
+//     background-color: $off-white;
+// }

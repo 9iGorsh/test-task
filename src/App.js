@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import HomePage from "./pages/HomePage";
 import NotFoundPage from "./pages/NotFoundPage";
 import ItemPage from "./pages/ItemPage";
-import './App.css'
+import './styles/styles.scss';
 
 const App=() =>(
     <BrowserRouter>
