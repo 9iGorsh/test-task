@@ -33,7 +33,7 @@ const getLastCurrencyData =async(CharCode, isArchive) =>{
 
     const current_Data =await axios.get(`https://www.cbr-xml-daily.ru/${archive}${prevItemDate}/daily_json.js`)
 
-    const currentDate =await current_Data.data.Timestamp
+    const currentDate =await current_Data.data.Date
 
     //set previous date:
     const prevDate = await current_Data.data.PreviousDate
@@ -43,12 +43,9 @@ const getLastCurrencyData =async(CharCode, isArchive) =>{
     //set currentCurrency data and date to array:
     const lastData =await current_Data.data.Valute[CharCode]
 
-    if(!isArchive){
-        const currentDateMoment = moment(currentDate, "YYYY-MM-DD")
-        currentItemDate =currentDateMoment.format('YYYY')+'/'+currentDateMoment.format('MM')+'/'+currentDateMoment.format('DD')
-        dateOfValue =currentItemDate
-    }else{
-        dateOfValue =prevItemDate
-    }
+    const currentDateMoment = moment(currentDate, "YYYY-MM-DD")
+    currentItemDate =currentDateMoment.format('YYYY')+'/'+currentDateMoment.format('MM')+'/'+currentDateMoment.format('DD')
+    dateOfValue =currentItemDate
+
     archive10.push({...lastData, dateOfValue})
 }
